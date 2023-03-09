@@ -24,8 +24,9 @@ GIF created with `LiceCap`.
 ## Development server
 
 * Install Python
-* Clone repository
-* Navigate to the project folder using the command line and run `pip install -r requirements.txt`
+* Clone repository.
+* Navigate to the project folder using the command line and run `pip install -r requirements.txt`.
+* unzip the `models.zip` folder.
 * Run the code for a dev server. Navigate to `http://localhost:5000/`. The application will automatically reload if you change any of the source files.
 
 
