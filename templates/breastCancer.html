@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Breast Cancer Detector</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/breastStyle.css') }}">
+        <script src="{{url_for('static', filename='defaultScript.js')}}"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1 class="title">Breast Cancer Detector</h1>
+
+        <nav id="navigation">
+          <ul class="links">
+            <li><a href="/default">Brain Tumor</a></li>
+            <li><a href="/breast_cancer">Breast Cancer</a></li>
+          </ul>
+        </nav>
+
+        <div class="title">
+          <h1>Breast Cancer Detector</h1>
+        </div>
+
+        <form action="{{ url_for('get_data')}}" method="post">
+
+            <div class="parent">
+                <div class="child">
+                    <table class="styled-table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="texture_mean">Texture Mean</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="texture_mean" name="texture_mean"   >
+                                </td>
+                            </tr>
+
+                            <tr class="active-row">
+                                <td>
+                                    <label for="area_mean">Area Mean</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="area_mean" name="area_mean"  >
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <label for="concavity_mean">Concavity Mean</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="concavity_mean" name="concavity_mean"   >
+                                </td>
+                            </tr>
+
+
+                             <tr>
+                                <td>
+                                    <label for="area_se">Area SE</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="area_se" name="area_se"  >
+                                </td>
+                            </tr>
+
+
+                             <tr>
+                                <td>
+                                    <label for="concavity_se">Concavity SE</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="concavity_se" name="concavity_se"  >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div class="child">
+                    <table class="styled-table">
+                        <tbody>
+                             <tr>
+                                <td>
+                                    <label for="fractal_dimension_se">Fractal Dimension SE</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="fractal_dimension_se" name="fractal_dimension_se"  >
+                                </td>
+                            </tr>
+
+
+                             <tr>
+                                <td>
+                                    <label for="smoothness_worst">Smoothness Worst</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="smoothness_worst" name="smoothness_worst"  >
+                                </td>
+                            </tr>
+
+
+                             <tr>
+                                <td>
+                                    <label for="concavity_worst">Concavity Worst</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="concavity_worst" name="concavity_worst"   >
+                                </td>
+                            </tr>
+
+
+                             <tr>
+                                <td>
+                                    <label for="symmetry_worst">Symmetry Worst</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="symmetry_worst" name="symmetry_worst"   >
+                                </td>
+                            </tr>
+
+
+                             <tr>
+                                <td>
+                                    <label for="fractal_dimension_worst">Fractal Dimension Worst</label>
+                                </td>
+                                <td>
+                                    <input type="text" id="fractal_dimension_worst" name="fractal_dimension_worst"  >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <input class='btn_predict' type="submit" value="Predict">
+        </form>
+
+
+        {% if result %}
+            <h3 class="pred">Result: {{result}}</h3>
+        {% endif %}
+
+
+        <div class="footer">
+            <a class="github" href="https://github.com/orgs/Brain-Tumor-Breast-Cancer-Detection/repositories">
+              <i  class="fa fa-github" aria-hidden="true"></i>
+            </a>
+
+            <p class="copyright">Université Espoir © 2023</p>
+        </div>
+    </body>
+</html>

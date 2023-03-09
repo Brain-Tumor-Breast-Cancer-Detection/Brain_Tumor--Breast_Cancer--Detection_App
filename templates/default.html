@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Brain Tumor Detector</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/defaultStyle.css') }}">
+        <script src="{{url_for('static', filename='defaultScript.js')}}"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1 class="title">Brain Tumor Detector</h1>
+
+        <nav id="navigation">
+          <ul class="links">
+            <li><a href="/default">Brain Tumor</a></li>
+            <li><a href="/breast_cancer">Breast Cancer</a></li>
+          </ul>
+        </nav>
+
+        <div class="title">
+          <h1>Brain Tumor Detector</h1>
+        </div>
+
+
+        <div class='image'>
+              <img id="output" src="{{url_for('static', filename=filename)}}" alt="" class="container_img" />
+        </div>
+
+        {% if class_name %}
+            <h3 class="pred">Result: {{class_name}}</h3>
+        {% endif %}
+
+        <form method="post" action="/default" enctype="multipart/form-data">
+
+            <label for="images" class="drop-container">
+              <span class="drop-title">Drop files here</span>
+              or
+              <input type="file" id="images" name="file"  onchange="loadFile(event)" >
+            </label>
+            <input class='btn_predict' type="submit" value="Predict">
+        </form>
+
+    <script>
+      var loadFile = function(event) {
+          var image = document.getElementById('output');
+           image.src=URL.createObjectURL(event.target.files[0]);
+      };
+    </script>
+
+
+        <div class="footer">
+            <a class="github" href="https://github.com/orgs/Brain-Tumor-Breast-Cancer-Detection/repositories">
+              <i  class="fa fa-github" aria-hidden="true"></i>
+            </a>
+
+            <p class="copyright">Université Espoir © 2023</p>
+        </div>
+    </body>
+</html>
